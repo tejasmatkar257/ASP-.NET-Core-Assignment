@@ -1,0 +1,75 @@
+﻿@model FootballLeague
+
+
+<div class="container shadow p-5">
+    <div class="row pb-2">
+        <h2>Add FootballLeague</h2>
+    </div>
+
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="TeamName1"> TeamName1</label>
+                <input type="text" class="form-control mb-3" asp-for="TeamName1" placeholder="Enter TeamName1">
+                <span asp-validation-for="TeamName1" class=" alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="TeamName2"> TeamName2</label>
+                <input type="text" class="form-control mb-3" asp-for="TeamName2" placeholder="Enter TeamName2">
+                <span asp-validation-for="TeamName2" class=" alert-danger"></span>
+            </div>
+            <div class="form-group col-md-6" id="point">
+                <label asp-for="Status">Status</label>
+                <select asp-for="Status" class="form-control">
+               
+                <option value="Win">Win</option>
+                <option value="Draw" selected>Draw</option>
+               
+            </select>
+                <span asp-validation-for="Status" class=" alert-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+             <div class="form-group col-md-6">
+                <label asp-for="WinningTeam"> WinningTeam</label>
+                <input type="text" class="form-control mb-3" asp-for="WinningTeam" placeholder="Enter WinningTeam">
+                <span asp-validation-for="WinningTeam" class=" alert-danger"></span>
+            </div>
+
+
+            @*<div class="form-group col-md-6">
+                <label asp-for="Points"> Points</label>
+                <input type="number" class="form-control mb-3" asp-for="Points" placeholder="Enter Points">
+                <span asp-validation-for="Points" class=" alert-danger"></span>
+            </div>*@
+
+            <div class="form-group col-md-6" >
+                <label asp-for="Points">Points</label>
+                <select asp-for="Points" class="form-control">
+               
+                <option value=4 >4</option>
+                <option value=2 selected>2</option>
+               
+            </select>
+                <span asp-validation-for="Status" class=" alert-danger"></span>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-lg btn-primary p-2"><i class="bi bi-file-plus-fill"></i>Save</button>
+        <a asp-controller="FootballLeague" asp-action="Index" class="btn btn-lg btn-warning p-2">Back To List</a>
+    </form>
+
+</div>
+
+
+@*//for front end validations*@
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}
